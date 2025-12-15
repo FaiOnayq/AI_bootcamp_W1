@@ -1,0 +1,22 @@
+{
+  "rows": 4,
+  "n_cols": 4,
+  "columns": [
+    "name",
+    "age",
+    "city",
+    "salary"
+  ],
+  "missing": {
+    "name": 0,
+    "age": 1,
+    "city": 1,
+    "salary": 1
+  },
+  "non_empty": {
+    "name": 4,
+    "age": 3,
+    "city": 3,
+    "salary": 3
+  }
+}
