@@ -27,47 +27,27 @@ def write_json(report: dict, path: str | Path) -> None:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    
-def write_markdown(report: dict, path: str | Path) -> None:
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
 
-    rows = report["summary"]["rows"]
 
+def render_markdown(report: dict) -> str:
     lines: list[str] = []
-    lines.extend(md_header("data/sample.csv"))
 
-    lines.append("## Summary")
-    lines.append(f"- Rows: {rows:,}")
-    lines.append(f"- Columns: {report['summary']['columns']:,}")
-    lines.append("")
+    lines.append(f"# CSV Profiling Report\n")
+    lines.append(f"Generated: {datetime.now().isoformat(timespec='seconds')}\n")
 
-    lines.append("## Columns (table)")
-    lines.extend(md_table_header())
+    lines.append("## Summary\n")
+    lines.append(f"- Rows: **{report['n_rows']}**")
+    lines.append(f"- Columns: **{report['n_cols']}**\n")
 
-    for name, col in report["columns"].items():
-        missing_pct = (col["missing"] / rows) if rows else 0.0
-        lines.append(md_col_row(name, col["type"], col["missing"], missing_pct, col["unique"]))
+    lines.append("## Columns\n")
+    lines.append("| name | type | missing | missing_pct | unique |")
+    lines.append("|---|---:|---:|---:|---:|")
+    lines.extend([
+        f"| {c['name']} | {c['type']} | {c['missing']} | {c['missing_pct']:.1f}% | {c['unique']} |"
+        for c in report["columns"]
+    ])
 
-    lines.append("")
-    lines.append("## Column details")
+    lines.append("\n## Notes\n")
+    lines.append("- Missing values are: `''`, `na`, `n/a`, `null`, `none`, `nan` (case-insensitive)")
 
-    for name, col in report["columns"].items():
-        lines.append(f"### `{name}` ({col['type']})")
-
-        if col["type"] == "number":
-            lines.append(f"- min: {col['min']}")
-            lines.append(f"- max: {col['max']}")
-            lines.append(f"- mean: {col['mean']}")
-        else:
-            top = col.get("top", [])
-            if not top:
-                lines.append("- (no non-missing values)")
-            else:
-                lines.append("- top values:")
-                for item in top:
-                    lines.append(f"  - `{item['value']}`: {item['count']}")
-
-        lines.append("")
-
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return "\n".join(lines)

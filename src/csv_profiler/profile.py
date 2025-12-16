@@ -100,8 +100,3 @@ def basic_profile(rows: list[dict[str, str]]) -> dict:
         report["columns"][col] = {"type": typ, **stats}
 
     return report
-
-rows = [{'name': 'Aisha', 'age': '23', 'city': 'Riyadh', 'salary': '12000'},
-{'name': 'Fahad', 'age': '', 'city': 'Jeddah', 'salary': '9000'},
-{'name': 'Noor', 'age': '29', 'city': '', 'salary': ''}]
-basic_profile(rows)
