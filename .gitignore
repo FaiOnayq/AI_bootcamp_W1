@@ -1,6 +1,6 @@
 __pycache__/
 .venv/
-outputs/
+outputs
 .env
 .DS_Store
 Thumbs.db
