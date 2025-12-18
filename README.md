@@ -1,0 +1,4 @@
+# csv profiling
+
+- CLI
+- Streamlit
