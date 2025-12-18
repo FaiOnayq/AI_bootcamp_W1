@@ -15,9 +15,8 @@ app = typer.Typer()
 def profile(
     input_path: Path = typer.Argument(..., help="Input CSV file"),
     out_dir: Path = typer.Option(Path("outputs"), "--out-dir", help="Output folder"),
-    report_name: str = typer.Option("report2", "--report-name", help="Base name for outputs"),
+    report_name: str = typer.Option("report", "--report-name", help="Base name for outputs"),
     preview: bool = typer.Option(False, "--preview", help="Print a short summary"),
-    threshold: float | None = typer.Option(None, "--fail-on-missing-pct", help="threshold of the missing pct")
 ):
     # implementation comes in hands-on
     typer.echo(f"Input: {input_path}")

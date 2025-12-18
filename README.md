@@ -18,8 +18,15 @@ If you have a src/ folder:
 ```
 Run this:
 ```
-    `uv run python -m csv_profiler.cli profile data/sample.csv --out-dir outputs`
+    uv run python -m csv_profiler.cli data/sample.csv
 ```
+optional setting for the profiling:
+- `--report-name <report>`
+- `--out-dir outputs <outputs>`
+- `--preview`
+
+![Demo](images/cli.jpeg)
+
 
 ## Run GUI
 If you have a src/ folder:
@@ -33,6 +40,10 @@ Run this:
 ```
 
 open `http://localhost:8501/`
+
+![Demo](images/gui.jpeg)
+
+---
 
 ## Output Files
 
