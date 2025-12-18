@@ -19,6 +19,7 @@ def profile(
     preview: bool = typer.Option(False, "--preview", help="Print a short summary"),
 ):
     # implementation comes in hands-on
+    typer.echo("Successful to Create The Profile!")
     typer.echo(f"Input: {input_path}")
     typer.echo(f"Out:   {out_dir}")
     typer.echo(f"Name:  {report_name}")
