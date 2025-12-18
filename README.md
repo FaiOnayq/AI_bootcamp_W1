@@ -17,7 +17,9 @@ If you have a src/ folder:
     #   Windows:   $env:PYTHONPATH="src"
 ```
 Run this:
+```
     `uv run python -m csv_profiler.cli profile data/sample.csv --out-dir outputs`
+```
 
 ## Run GUI
 If you have a src/ folder:
@@ -26,8 +28,9 @@ If you have a src/ folder:
     #   Windows:   $env:PYTHONPATH="src"
 ```
 Run this:
-
-    `uv run streamlit run app.py`
+```
+    uv run streamlit run app.py
+```
 
 open `http://localhost:8501/`
 
