@@ -25,7 +25,6 @@ optional setting for the profiling:
 - `--out-dir outputs <outputs>`
 - `--preview`
 
-![Demo](images/cli.png)
 
 
 ## Run GUI

@@ -58,8 +58,8 @@ if report is not None:
     for x in range(top_key):
         st.write(f"{x+1}. {nameTop[x]}")
     
-    st.subheader("Markdown preview")
-    st.markdown(render_markdown(report))
+    with st.expander("Markdown preview", expanded=False):
+        st.markdown(render_markdown(report))
     #st.write(render_markdown(report))
     
     st.title("Download and Save")
