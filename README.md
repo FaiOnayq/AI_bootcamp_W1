@@ -55,4 +55,6 @@ The Streamlit app can:
 - Upload and preview the report
 - download JSON + Markdown
 
+Note: conflict check
+
 Note: main
