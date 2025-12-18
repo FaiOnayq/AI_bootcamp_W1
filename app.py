@@ -49,8 +49,6 @@ else:
 
 report = st.session_state.get("report")
 if report is not None:
-    st.write("Rows:", report["n_rows"])
-    st.write("Cols:", report["n_cols"])
     st.write("Top missing Columns: ")
 
     top_key = 3

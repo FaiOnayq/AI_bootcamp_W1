@@ -41,7 +41,7 @@ Run this:
 
 open `http://localhost:8501/`
 
-![Demo](images/gui.jpeg)
+![Demo](images/gui.png)
 
 ---
 
